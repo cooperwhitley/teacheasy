@@ -1,24 +1,42 @@
 # Teach-App
-A web app for teachers and students to coordinate classes and assignments. It allows a teacher to schedule classes and create assignments, so that students can then plan attendance to classes and view their assignments.
+A web app for teachers and students to coordinate classes and assignments. Allows full management of class scheduling, assignments, and more.
 
-# User Stories
+### Group Members:
+#### Cooper Whitley - Dev Ops Engineer
+#### Noah Mendoza - Front End Engineer
+#### Carlos Prieto - Back End Engineer
+
+### Technologies Used
+
+- Django
+- AWS
+- Python
+- CSS
+- HTML5
+- Postgres
+### User Stories
 
  As a user, I want the ability to:
 - create an account as either a teacher or a student
 - log in to my own account
-- (teacher user) create a class
-- (teacher user) specify a number of students that can attend a class
-- (teacher user) schedule a time for a class
-- (teacher user) view class attendance list
-- (teacher user) view class assignments in chronological order
-- (teacher user) view created classes in chronological order
-- (student user) view available classes in chronological order
-- (student user) view availability of class slots
-- (student user) join a class with availability
-- (student user) view classes I have joined
-- (student user) view assignments for classes I have joined.
+- teacher users:
+    -  create a class
+    -  specify a number of students that can attend a class
+    -  schedule a time for a class
+    -  view class attendance list
+    -  view class assignments in chronological order
+    -  view created classes in chronological order
+    - view and grade assignment submissions
+- student users:
+    - view available classes in chronological order
+    - view availability of class slots
+    - join a class with availability
+    - view classes I have joined
+    - view assignments for classes I have joined.
+    - view class schedule
+    - upload submissions for assignments
 
-# Wireframes
+### Wireframes
 
 <img src="https://i.imgur.com/cf4BejN.png">
 <img src="https://i.imgur.com/ahXGaxL.png">
@@ -27,16 +45,8 @@ A web app for teachers and students to coordinate classes and assignments. It al
 <img src="https://i.imgur.com/LD9MOyj.png">
 <img src="https://i.imgur.com/rVtVV7g.png">
 
-# Technologies Used
 
-- Django
-- AWS
-- Python
-- CSS
-- HTML5
-- Postgres
-
-# ERD
+### ERD
 
 <img src="https://i.imgur.com/NckoZQN.png">
 
