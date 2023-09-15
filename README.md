@@ -20,7 +20,12 @@ A web app for teachers and students to coordinate classes and assignments. It al
 
 # Wireframes
 
-<img>
+<img src="https://i.imgur.com/cf4BejN.png">
+<img src="https://i.imgur.com/ahXGaxL.png">
+<img src="https://i.imgur.com/SYM10S2.png">
+<img src="https://i.imgur.com/dbprJId.png">
+<img src="https://i.imgur.com/LD9MOyj.png">
+<img src="https://i.imgur.com/rVtVV7g.png">
 
 # Technologies Used
 
