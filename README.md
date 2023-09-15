@@ -1,19 +1,19 @@
-# Teach-App
+# TeachEasy
 A web app for teachers and students to coordinate classes and assignments. Allows full management of class scheduling, assignments, and more.
 
-### Group Members:
+### The Team:
 #### Cooper Whitley - Dev Ops Engineer
 #### Noah Mendoza - Front End Engineer
 #### Carlos Prieto - Back End Engineer
 
 ### Technologies Used
 
-- Django
-- AWS
-- Python
-- CSS
+- Python/Django
 - HTML5
-- Postgres
+- CSS
+- AWS
+- PostgreSQL
+
 ### User Stories
 
  As a user, I want the ability to:
