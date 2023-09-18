@@ -53,5 +53,20 @@ class Comment(models.Model):
         return f'Comment {self.body} on post {self.post}'
 
 # assignments
+class Assignment(models.Model):
+    title = models.CharField(max_length=50)
+    body = models.CharField(max_length=500)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
-# submissions model
+    def __str__(self):
+        return f'Assignment {self.title} for course {self.course}'
+
+# submissions
+
+class Submission(models.Model):
+    url = models.CharField(max_length=200)
+    comment = models.CharField(max_length=1000)
+    assignment = models.ForeignKey(Assignment, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Submission file {self.url} for assignment {self.assignment}'
