@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect
 from main_app.models import Course, Post, Comment, Assignment, Submission
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 import uuid, boto3, os
 
 # Create your views here.
@@ -15,6 +18,23 @@ def home(request):
 # About view
 def about(request):
     return render(request, 'about.html')
+
+# Sign Up View
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('index')
+    else:
+      error_message = 'Invalid sign up - try again'
+
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
 
 # Course Views
 class CourseList(ListView):
