@@ -1,18 +1,28 @@
+
+{% load compress %}
 {% load static %}
+  
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
     <title>TeachEasy</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+  
+    {% compress css %}
+    <link rel="stylesheet" 
+        href="{% static 'src/input.css' %}">
+    {% endcompress %}
 </head>
 <body>
     <header>
         <!-- navbar -->
         <nav>
-            <div>
+            <a class="boujee-text">TeachEasy<a>
+            <div class="nav-container">
                 <a class="dashboard-link" href="/home">Dashboard</a>
                 <a class="profile-link" href="/profile">Profile</a>
             </div>        

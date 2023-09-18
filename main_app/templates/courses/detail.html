@@ -5,18 +5,18 @@
 
     <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ class.name }}</span>
-            <p>Color: {{ class.color }}</p>
-            <p>Size: {{ class.size }}</p>
-            {% if class.habitat %}
-                <p>Habitat: {{ class.habitat }}</p>
+            <span class="card-title">{{ course.name }}</span>
+            <p>Color: {{ course.color }}</p>
+            <p>Size: {{ course.size }}</p>
+            {% if course.habitat %}
+                <p>Habitat: {{ course.habitat }}</p>
                 {% else %}
                     <p>Habitat: N/A</p>
                 {% endif %}
         </div>
         <div class="card-action">
-            <a href="{% url 'classes_update' class.id %}">Edit</a>
-            <a href="{% url 'classes_delete' class.id %}">Delete</a>
+            <a href="{% url 'courses_update' course.id %}">Edit</a>
+            <a href="{% url 'courses_delete' course.id %}">Delete</a>
         </div>
     </div>
 
