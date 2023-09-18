@@ -7,6 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid, boto3, os
 
 # Create your views here.
@@ -45,18 +46,18 @@ class CourseDetail(DetailView):
     model: Course
     template_name = 'courses/detail.html'
 
-class CourseCreate(CreateView):
+class CourseCreate(LoginRequiredMixin, CreateView):
     model = Course
     fields = '__all__'
 
     def form_valid(self, form):
         return super().form_valid(form)
 
-class CourseUpdate(UpdateView):
+class CourseUpdate(LoginRequiredMixin, UpdateView):
     model = Course
     fields = '__all__'
 
-class CourseDelete(DeleteView):
+class CourseDelete(LoginRequiredMixin, DeleteView):
     model = Course
     success_url = '/courses'
 
@@ -69,18 +70,18 @@ class PostDetail(DetailView):
     model: Post
     template_name = 'posts/detail.html'
 
-class PostCreate(CreateView):
+class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
     fields = '__all__'
 
     def form_valid(self, form):
         return super().form_valid(form)
 
-class PostUpdate(UpdateView):
+class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
     fields = '__all__'
 
-class PostDelete(DeleteView):
+class PostDelete(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = '/posts'
 
@@ -95,18 +96,18 @@ class AssignmentDetail(DetailView):
     model: Assignment
     template_name = 'assignments/detail.html'
 
-class AssignmentCreate(CreateView):
+class AssignmentCreate(LoginRequiredMixin, CreateView):
     model = Assignment
     fields = '__all__'
 
     def form_valid(self, form):
         return super().form_valid(form)
 
-class AssignmentUpdate(UpdateView):
+class AssignmentUpdate(LoginRequiredMixin, UpdateView):
     model = Assignment
     fields = '__all__'
 
-class AssignmentDelete(DeleteView):
+class AssignmentDelete(LoginRequiredMixin, DeleteView):
     model = Assignment
     success_url = '/assignments'
 

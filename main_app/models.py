@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 
 SUBJECTS = (
@@ -16,6 +16,9 @@ SUBJECTS = (
 
 
 # Create your models here.
+
+class User(AbstractUser):
+    pass
 
 class DaysOfTheWeek(models.Model):
     day = models.CharField(max_length=10)
