@@ -1,7 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
+<html>
+  
+<head>
+    <title>
+        Dashboard
+    </title>
+  
+    <script src=
+"https://cdn.tailwindcss.com">
+    </script>
+</head>
 
-    <h1>dashboard</h1>
+<body>
+    <div class="grid">
+        <div class="bg-white-500 row-start-1
+                    col-span-4 h-[100vh]">
+                    <h1>Dashboard</h1>
+        </div>
+        <div class="bg-gray-200 row-start-1 
+                    col-span-1 h-[100vh]">
+            <h1>Recent</h1>
+            <h1>All Classes</h1>
+            <h1>Create Class</h1>
+            <h1>Assignments</h1>
 
-
+        </div>
+    </div>
+</body>
+  
+</html>
 {% endblock %}
