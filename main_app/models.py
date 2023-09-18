@@ -31,6 +31,8 @@ class Course(models.Model):
     # to facilitate schedules being multiple days of the week we utilized a separate object to store dates with a many to many relationship between classes and days
     days = models.ManyToManyField(DaysOfTheWeek)
     subject = models.CharField(max_length=4, choices=SUBJECTS, default=SUBJECTS[0][0])
+    require_password = models.BooleanField()
+    password = models.CharField(max_length=20)
 
     def __str__(self):
         return f'Course {self.name}, {self.start_date}-{self.end_date}'
