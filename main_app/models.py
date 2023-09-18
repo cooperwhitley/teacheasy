@@ -45,6 +45,12 @@ class Post(models.Model):
         return f'Post {self.title} from course {self.course}'
     
 # comments model
+class Comment(models.Model):
+    body = models.CharField(max_length=500)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Comment {self.body} on post {self.post}'
 
 # assignments
 
