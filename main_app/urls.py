@@ -6,6 +6,8 @@ urlpatterns = [
     path('', views.home, name='home'),
     # About url
     path('about/', views.about, name='about'),
+    # auth urls
+    path('accounts/signup/', views.signup, name='signup'),
     # Course urls
     path('courses/', views.CourseList.as_view(), name='courses_index'),
     path('courses/<int:pk>/', views.CourseDetail.as_view(), name='courses_detail'),
