@@ -28,4 +28,6 @@ urlpatterns = [
     path('assignments/<int:pk>/update', views.AssignmentUpdate.as_view(), name='assignments_update'),
     path('assignments/<int:pk>/delete', views.AssignmentDelete.as_view(), name='assignments_delete'),
     # Submission Views
+    path('assignments/<int:assignment_id>/add_submission/', views.upload_submission, name='upload_submission'),
+    path('assignments/<int:assignment_id>/submissions/<int:submission_id>/', views.submission_detail, name='submission_detail'),
 ]

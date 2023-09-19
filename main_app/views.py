@@ -62,11 +62,11 @@ class CourseDelete(LoginRequiredMixin, DeleteView):
     success_url = '/courses'
 
 # Post Views
-class PostList(ListView):
+class PostList(LoginRequiredMixin, ListView):
     model: Post
     template_name = 'posts/index.html'
 
-class PostDetail(DetailView):
+class PostDetail(LoginRequiredMixin, DetailView):
     model: Post
     template_name = 'posts/detail.html'
 
@@ -88,11 +88,11 @@ class PostDelete(LoginRequiredMixin, DeleteView):
 # Comment Views
 
 # Assignment Views
-class AssignmentList(ListView):
+class AssignmentList(LoginRequiredMixin, ListView):
     model: Assignment
     template_name = 'assignments/index.html'
 
-class AssignmentDetail(DetailView):
+class AssignmentDetail(LoginRequiredMixin, DetailView):
     model: Assignment
     template_name = 'assignments/detail.html'
 
@@ -112,3 +112,26 @@ class AssignmentDelete(LoginRequiredMixin, DeleteView):
     success_url = '/assignments'
 
 # Submission Views
+
+@login_required
+def submission_detail(request, assignment_id, submission_id):
+    return render(request, 'submissions/detail.html', {
+        'assignment': Assignment.objects.get(id=assignment_id),
+        'submission': Submission.objects.get(id=submission_id)
+    })
+
+@login_required
+def upload_submission(request, assignment_id):
+    submission_file = request.FILES.get('submission-file', None)
+    if submission_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + submission_file.name[submission_file.name.rfind('.'):]
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(submission_file, bucket, key)
+            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+            Submission.objects.create(url=url, assignment_id=assignment_id)
+        except Exception as e:
+            print('An error occurred uploading file to S3')
+            print(e)
+    return redirect('assignments_detail', pk=assignment_id)
