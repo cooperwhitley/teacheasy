@@ -18,15 +18,17 @@ urlpatterns = [
     path('posts/', views.PostList.as_view(), name='posts_index'),
     path('posts/<int:post_id>/', views.posts_detail, name='posts_detail'),
     path('posts/create/', views.PostCreate.as_view(), name='posts_create'),
-    path('posts/<int:pk>/update', views.PostUpdate.as_view(), name='posts_update'),
-    path('posts/<int:pk>/delete', views.PostDelete.as_view(), name='posts_delete'),
+    path('posts/<int:pk>/update/', views.PostUpdate.as_view(), name='posts_update'),
+    path('posts/<int:pk>/delete/', views.PostDelete.as_view(), name='posts_delete'),
     # Comment Views
+    path('posts/<int:post_id>/add_comment/', views.add_comment, name='add_comment'),
+    path('posts/<int:post_id>/comments/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'),
     # Assignment Views
     path('assignments/', views.AssignmentList.as_view(), name='assignments_index'),
     path('assignments/<int:assignment_id>/', views.AssignmentDetail.as_view(), name='assignments_detail'),
     path('assignments/create/', views.AssignmentCreate.as_view(), name='assignments_create'),
-    path('assignments/<int:pk>/update', views.AssignmentUpdate.as_view(), name='assignments_update'),
-    path('assignments/<int:pk>/delete', views.AssignmentDelete.as_view(), name='assignments_delete'),
+    path('assignments/<int:pk>/update/', views.AssignmentUpdate.as_view(), name='assignments_update'),
+    path('assignments/<int:pk>/delete/', views.AssignmentDelete.as_view(), name='assignments_delete'),
     # Submission Views
     path('assignments/<int:assignment_id>/add_submission/', views.upload_submission, name='upload_submission'),
     path('assignments/<int:assignment_id>/submissions/<int:submission_id>/', views.submission_detail, name='submission_detail'),
