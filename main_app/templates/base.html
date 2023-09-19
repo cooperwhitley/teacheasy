@@ -1,5 +1,4 @@
 
-{% load compress %}
 {% load static %}
   
 <!DOCTYPE html>
@@ -12,12 +11,7 @@
         "width=device-width, initial-scale=1.0">
     <title>TeachEasy</title>
     
-    
-    {% compress css %}
-    <link rel="stylesheet" 
-    href="{% static 'src/input.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% endcompress %}
 </head>
 <body> 
     <nav class="bg-gray-900">
