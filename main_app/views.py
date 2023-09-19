@@ -8,6 +8,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import CommentForm
 import uuid, boto3, os
 
 # Create your views here.
@@ -66,9 +67,12 @@ class PostList(LoginRequiredMixin, ListView):
     model: Post
     template_name = 'posts/index.html'
 
-class PostDetail(LoginRequiredMixin, DetailView):
-    model: Post
-    template_name = 'posts/detail.html'
+@login_required
+def posts_detail(request, post_id):
+    return render(request, 'posts/detail.html', {
+        'post': Post.objects.get(id=post_id),
+        'comment_form': CommentForm()
+    })
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
@@ -86,6 +90,18 @@ class PostDelete(LoginRequiredMixin, DeleteView):
     success_url = '/posts'
 
 # Comment Views
+
+@login_required
+def add_comment(request, post_id):
+    form = CommentForm(request.POST)
+
+    if form.is_valid():
+        new_comment = form.save(commit=False)
+        new_comment.post_id = post_id
+        new_comment.save()
+
+    return redirect('posts_detail', post_id=post_id)
+
 
 # Assignment Views
 class AssignmentList(LoginRequiredMixin, ListView):
