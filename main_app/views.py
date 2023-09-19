@@ -102,6 +102,10 @@ def add_comment(request, post_id):
 
     return redirect('posts_detail', post_id=post_id)
 
+def delete_comment(request, post_id, comment_id):
+    Comment.objects.get(id=comment_id).delete()
+    return redirect('posts_detail', post_id=post_id)
+
 
 # Assignment Views
 class AssignmentList(LoginRequiredMixin, ListView):
