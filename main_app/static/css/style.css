@@ -1,7 +1,7 @@
 .anim-text {
   --bg-size: 400%;
-  --color-one: hsl(54, 49%, 52%);
-  --color-two: hsl(113, 57%, 48%);
+  --color-one: hsl(0, 0%, 100%);
+  --color-two: #e3d26f;
   font-family: sans-serif;
   font-size: clamp(1rem, 3vmin, 2rem);
   background: linear-gradient(
@@ -18,7 +18,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .anim-text {
-    animation: move-bg 8s linear infinite;
+    animation: move-bg 24s linear infinite;
   }
   @keyframes move-bg {
     to {
@@ -28,5 +28,19 @@
 }
 
 #header-nav{
-  background-color: green;
+  background-color: #2f1b25;
+  padding: 3vmin;
+}
+
+.non-logo-links {
+  color: rgb(204, 204, 204);
+  padding-left: 4vmin;
+  padding-right: 4vmin;
+  font-size: 2vmin;
+  transition: color 500ms ease;
+}
+
+.non-logo-links:hover {
+  color: white;
+  transition: color 800ms ease;
 }
