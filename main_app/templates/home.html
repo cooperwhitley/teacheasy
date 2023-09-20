@@ -18,14 +18,12 @@
         </div>
         <div class="col-sm-2 sidenav">
             <ul class="nav nav-pills flex-column">
-                <li ><a class="navlinks" href="">Recent</a></li>
-                <li><a href="courses/" class="navlinks">All Classes</a></li>
-                <li><a href="courses/" class="navlinks">Join Classes</a></li>
-                <li><a href="assignments/" class="navlinks">Assignments</a></li>
+                <li ><a class="navlinks" href="{% url 'home' %}">Recent</a></li> <!-- Updated URL name -->
+                <li><a href="{% url 'courses_index' %}" class="navlinks">All Classes</a></li> <!-- Updated URL name -->
+                <li><a href="{% url 'courses_index' %}" class="navlinks">Join Classes</a></li> <!-- Updated URL name -->
+                <li><a href="{% url 'assignments_index' %}" class="navlinks">Assignments</a></li> <!-- Updated URL name -->
             </ul><br>
         </div>
   </div>
 </div>
 {% endblock %}
-
-
