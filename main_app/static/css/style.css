@@ -1,32 +1,32 @@
-* {
-    box-sizing: border-box;
+.anim-text {
+  --bg-size: 400%;
+  --color-one: hsl(54, 49%, 52%);
+  --color-two: hsl(113, 57%, 48%);
+  font-family: sans-serif;
+  font-size: clamp(1rem, 3vmin, 2rem);
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-text {
+    animation: move-bg 8s linear infinite;
   }
-  
-  .boujee-text {
-    --bg-size: 400%;
-    --color-one: hsl(207, 69%, 61%);
-    --color-two: hsl(237, 95%, 55%);
-    font-family: sans-serif;
-    font-size: clamp(1rem, 3vmin, 2rem);
-    background: linear-gradient(
-        90deg,
-        var(--color-one),
-        var(--color-two),
-        var(--color-one)
-      )
-      0 0 / var(--bg-size) 100%;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .boujee-text {
-      animation: move-bg 8s linear infinite;
-    }
-    @keyframes move-bg {
-      to {
-        background-position: var(--bg-size) 0;
-      }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
     }
   }
+}
+
+#header-nav{
+  background-color: green;
+}

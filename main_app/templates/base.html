@@ -1,6 +1,5 @@
-
 {% load static %}
-  
+<!-- I have load static properly implemented here as per the documentation -->
 <!DOCTYPE html>
 <html lang="en">
   
@@ -10,29 +9,21 @@
     <meta name="viewport" content=
         "width=device-width, initial-scale=1.0">
     <title>TeachEasy</title>
-    
+    <!-- bootstrap cdn is connecting properly -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- this is the stylesheet that won't render -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body> 
-    <nav class="bg-gray-900">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <h5 class="boujee-text">TeachEasy</h5>
-            <div class="flex flex-col md:flex-row items-center"> 
-                <ul class="flex flex-row items-center space-x-4"> 
-                    <li>
-                        <a class="text-white hover:text-blue-400">Dashboard</a> 
-                    </li>
-                    <li class="mr-4">
-                        <a class="mr-4 text-white hover:text-blue-400">Profile</a> 
-                    </li>
-                </ul>
-                <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                    Login
-                </button>
-            </div>
-        </div>
-    </nav>
-      
+    <div id="header">
+        <nav id="header-nav">
+            <a href="/" class="anim-text">TeachEasy</a>
+            <a href="" class="non-logo-links">Courses</a>
+            <a href="" class="non-logo-links">Assignments</a>
+            <a href="" class="non-logo-links">Posts</a>
+        </nav>
+    </div>
+    
     <main>
         {% block content %}
         {% endblock %}
@@ -41,4 +32,5 @@
         <!-- footer stuffs -->
     </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>
