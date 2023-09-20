@@ -40,11 +40,11 @@ def signup(request):
 
 # Course Views
 class CourseList(ListView):
-    model: Course
+    model = Course
     template_name = 'courses/index.html'
 
 class CourseDetail(DetailView):
-    model: Course
+    model = Course
     template_name = 'courses/detail.html'
 
 class CourseCreate(LoginRequiredMixin, CreateView):
@@ -64,7 +64,7 @@ class CourseDelete(LoginRequiredMixin, DeleteView):
 
 # Post Views
 class PostList(LoginRequiredMixin, ListView):
-    model: Post
+    model = Post
     template_name = 'posts/index.html'
 
 @login_required
@@ -109,11 +109,11 @@ def delete_comment(request, post_id, comment_id):
 
 # Assignment Views
 class AssignmentList(LoginRequiredMixin, ListView):
-    model: Assignment
+    model = Assignment
     template_name = 'assignments/index.html'
 
 class AssignmentDetail(LoginRequiredMixin, DetailView):
-    model: Assignment
+    model = Assignment
     template_name = 'assignments/detail.html'
 
 class AssignmentCreate(LoginRequiredMixin, CreateView):
