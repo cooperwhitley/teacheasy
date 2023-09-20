@@ -1,9 +1,24 @@
-<h1>Log In</h1>
+{% extends 'base.html' %}
+{% block content %}
 
-<!-- Add the login form -->
-<form method="POST" action="{% url 'login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="hidden" name="next" value="{{ next }}">
-  <button type="submit" class="">Log In</button>
-</form>
+
+<div class="container-fluid form-container">
+  <h1 class="form-header">Log In</h1>
+  
+  <!-- Add the login form -->
+  <form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}">
+      <p>
+        <button type="submit" class="btn btn-success login-btn">Log In</button>
+      </p>
+    </div>
+  </form>
+  <a href="{% url 'signup' %}" class="signup-a">
+    <button class="btn btn-info signup-btn">Sign Up</button>
+  </a>
+</div>
+
+{% endblock %}
