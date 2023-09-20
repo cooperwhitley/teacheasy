@@ -44,3 +44,30 @@
   color: white;
   transition: color 800ms ease;
 }
+
+.form-header {
+  text-align: center;
+  margin-top: 4vmin;
+  margin-bottom: 4vmin;
+}
+
+.form-group>p {
+  text-align: center;
+}
+
+.form-group>ul>li {
+  align-self: center;
+  text-align: center;
+  list-style-type: none;
+}
+
+.signup-a {
+  align-self: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
