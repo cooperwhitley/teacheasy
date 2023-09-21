@@ -10,13 +10,13 @@
             <br>
             <h2>Course View</h2>
             <br>
-            {% for class in classes %}
+            {% for course in courses %}
                 <div class="card">
-                    <a href="{% url 'courses_detail' class.id %}"> <!-- Updated URL name -->
+                    <a href="{% url 'courses_detail' course.id %}">
                         <div class="card-content">
-                            <span class="card-title">{{ class.classname }}</span>
-                            <p>Teacher: {{ class.teacher }}</p>
-                            <p>Students: {{ class.studentsenrolled }}</p>
+                            <span class="card-title">{{ course.classname }}</span>
+                            <p>Teacher: {{ course.teacher }}</p>
+                            <p>Students: {{ course.studentsenrolled }}</p>
                         </div>
                     </a>
                 </div>
@@ -25,9 +25,9 @@
         <div class="col-sm-2 sidenav">
             <ul class="nav nav-pills flex-column">
                 <li ><a class="navlinks" href="">Recent</a></li>
-                <li><a href="{% url 'home' %}" class="navlinks">Dashboard</a></li> <!-- Updated URL name -->
-                <li><a href="{% url 'courses_index' %}" class="navlinks">Join Classes</a></li> <!-- Updated URL name -->
-                <li><a href="{% url 'assignments_index' %}" class="navlinks">Assignments</a></li> <!-- Updated URL name -->
+                <li><a href="{% url 'home' %}" class="navlinks">Dashboard</a></li> 
+                <li><a href="{% url 'courses_index' %}" class="navlinks">Join Classes</a></li>
+                <li><a href="{% url 'courses_create' %}" class="navlinks">Create a Class</a></li> 
             </ul><br>
         </div>
   </div>
