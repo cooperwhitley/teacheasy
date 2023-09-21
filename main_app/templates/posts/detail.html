@@ -1,36 +1,42 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock %}
+
 {% block content %}
         <!-- Post Details -->
-    <h1>Posts Details</h1>
-    <div class="card">
-        <div class="card-body">
-            <span class="card-text">{{post.user}}</span>
-            <br>
-            <span class="card-title">{{post.title}}</span>
-            <br>
-            <span class="card-text">{{post.body}}</span>
+    <div class="post-list">
+        <h1 class="flex-head">Posts Details</h1>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-text poster-name">{{post.user}}</h3>
+                <br>
+                <h4 class="card-title post-title">{{post.title}}</h4>
+                <br>
+                <p class="card-text post-body">{{post.body}}</p>
+            </div>
         </div>
-    </div>
                 <!-- Comments -->
-    <h1>Comments</h1>
-    <div class="card">
-        <div class="card-body">
-            <form action="{% url 'add_comment' post.id %}" method="POST">
-                {% csrf_token %}
-                {{ comment_form.as_p }}
-                <input type="submit" value="Add Comment" class="btn btn-success">
-            </form>
-
+        <h1 class="flex-head">Comments</h1>
+        <div class="card">
+                <form action="{% url 'add_comment' post.id %}" method="POST" class="card-body">
+                    {% csrf_token %}
+                    <br>
+                    <textarea name="body" class="form-control comment-body" placeholder="showcase your writing skills here" rows="5" maxlength="500"></textarea>
+                    <br>
+                    <input type="submit" value="Add Comment" class="btn btn-success add-comment-btn">
+                </form>
         </div>
-    </div>
-    {% for comment in post.comment_set.all %}
-    <div class="card">
-        <div class="card-body">
-            <h3 class="card-title">{{comment.user}}</h3>
-            <p class="card-text">{{comment.body}}</p>
+        {% for comment in post.comment_set.all %}
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title poster-name">{{comment.user}}</h3>
+                <p class="card-text post-body">{{comment.body}}</p>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 
 
 {% endblock %}
