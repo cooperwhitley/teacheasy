@@ -62,6 +62,7 @@ class CourseCreate(LoginRequiredMixin, CreateView):
 
 class CourseUpdate(LoginRequiredMixin, UpdateView):
     model = Course
+    template_name = 'courses/update.html'     
     fields = '__all__'
 
 class CourseDelete(LoginRequiredMixin, DeleteView):
