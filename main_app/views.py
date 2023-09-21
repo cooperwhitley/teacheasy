@@ -54,6 +54,7 @@ class CourseDetail(DetailView):
 
 class CourseCreate(LoginRequiredMixin, CreateView):
     model = Course
+    template_name = 'courses/create.html'    
     fields = '__all__'
 
     def form_valid(self, form):
@@ -61,10 +62,12 @@ class CourseCreate(LoginRequiredMixin, CreateView):
 
 class CourseUpdate(LoginRequiredMixin, UpdateView):
     model = Course
+    template_name = 'courses/update.html'     
     fields = '__all__'
 
 class CourseDelete(LoginRequiredMixin, DeleteView):
     model = Course
+    template_name = 'courses/delete.html'
     success_url = '/courses'
 
 # Post Views

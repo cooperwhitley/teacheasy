@@ -1,9 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block head %}
-<link rel="stylesheet" href="{% static 'css/courses.css' %}">
-{% endblock %}
-{% block content %}
 <div class="container-fluid">
   <div class="row content">
         <div class="col-sm-10 dashboard">
@@ -18,15 +13,6 @@
                 <button type="submit">Confirm Delete</button>
             </form>
             <a href="{% url 'courses_index' %}">Cancel</a>
-            {% endblock %}
-        </div>
-        <div class="col-sm-2 sidenav">
-            <ul class="nav nav-pills flex-column">
-                <li ><a class="navlinks" href="">Recent</a></li>
-                <li><a href="{% url 'home' %}" class="navlinks">Dashboard</a></li> 
-                <li><a href="{% url 'courses_index' %}" class="navlinks">Join Classes</a></li>
-                <li><a href="{% url 'courses_create' %}" class="navlinks">Create a Class</a></li> 
-            </ul><br>
         </div>
   </div>
 </div>
