@@ -42,10 +42,15 @@ def signup(request):
 class CourseList(ListView):
     model = Course
     template_name = 'courses/index.html'
+    context_object_name = 'courses'
+
+    def get_queryset(self):
+        return Course.objects.all()
 
 class CourseDetail(DetailView):
     model = Course
     template_name = 'courses/detail.html'
+    pk_url_kwarg = 'course_id'
 
 class CourseCreate(LoginRequiredMixin, CreateView):
     model = Course
