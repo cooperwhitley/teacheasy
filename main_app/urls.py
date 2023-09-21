@@ -15,8 +15,8 @@ urlpatterns = [
     path('courses/<int:pk>/update', views.CourseUpdate.as_view(), name='courses_update'),
     path('courses/<int:pk>/delete', views.CourseDelete.as_view(), name='courses_delete'),
     path('courses/<int:course_id>/join/', views.join_course, name='join_course'),
+    path('courses/<int:course_id>/leave/', views.leave_course, name='leave_course'),
 
-    
     # Post Views
     path('posts/', views.PostList.as_view(), name='posts_index'),
     path('posts/<int:post_id>/', views.posts_detail, name='posts_detail'),
