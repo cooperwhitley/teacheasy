@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Posts Details</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <span class="card-title">
+                <span></span> {{post.title}}
+            </span>
+            <br>
+            <span class="card-text">
+               <span></span> {{post.body}}
+          </span>
+          <br>
+          <span class="card-text">
+            <span></span> {{post.user}}
+        </span>
+        </div>
+        <div class="">
+            <a class="btn btn-success" href="{% url 'posts_update' post.id %}">Edit</a>
+            <a class="btn btn-danger" href="{% url 'posts_delete' post.id %}">Delete</a>
+        </div>
+    </div>
+{% endblock %}
