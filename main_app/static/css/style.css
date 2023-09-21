@@ -28,8 +28,12 @@
 }
 
 #header-nav{
-  background-color: #2f1b25;
+  background-color: #2f1b25c4;
   padding: 3vmin;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 5000;
 }
 
 .non-logo-links {
@@ -71,8 +75,18 @@
 }
 
 .footer {
+  width: 100vw;
   background-color: #2f1b25;
   color:#e3d26f;
   padding: 15px;
+  position: fixed;
+  bottom: 0;
 }
 
+.bumper {
+  margin-top: 10vmin;
+}
+
+body {
+  background-color: #ca8a5f20;
+}
