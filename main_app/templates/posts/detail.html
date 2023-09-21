@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+        <!-- Post Details -->
+    <h1>Posts Details</h1>
+    <div class="card">
+        <div class="card-body">
+            <span class="card-text">{{post.user}}</span>
+            <br>
+            <span class="card-title">{{post.title}}</span>
+            <br>
+            <span class="card-text">{{post.body}}</span>
+        </div>
+    </div>
+                <!-- Comments -->
+    <h1>Comments</h1>
+    <div class="card">
+        <div class="card-body">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <input type="submit" value="Add Comment" class="">
+
+            </form>
+
+        </div>
+    </div>
+
+
+{% endblock %}
