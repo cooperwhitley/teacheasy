@@ -38,6 +38,8 @@ class Course(models.Model):
     require_password = models.BooleanField()
     password = models.CharField(max_length=20)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    students = models.ManyToManyField(User, related_name='courses_enrolled', blank=True)
+
 
     def __str__(self):
         return f'Course {self.name}, {self.start_date}-{self.end_date}'

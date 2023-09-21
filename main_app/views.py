@@ -52,6 +52,11 @@ class CourseDetail(DetailView):
     template_name = 'courses/detail.html'
     pk_url_kwarg = 'course_id'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user_in_course'] = self.object.students.filter(id=self.request.user.id).exists()
+        return context
+
 class CourseCreate(LoginRequiredMixin, CreateView):
     model = Course
     template_name = 'courses/create.html'    
@@ -69,6 +74,12 @@ class CourseDelete(LoginRequiredMixin, DeleteView):
     model = Course
     template_name = 'courses/delete.html'
     success_url = '/courses'
+
+@login_required
+def join_course(request, course_id):
+    Course.objects.get(id=course_id).students.add(request.user)
+
+    return redirect('courses_detail', course_id=course_id)
 
 # Post Views
 class PostList(LoginRequiredMixin, ListView):
