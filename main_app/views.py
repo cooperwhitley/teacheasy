@@ -103,6 +103,7 @@ def add_comment(request, post_id):
     if form.is_valid():
         new_comment = form.save(commit=False)
         new_comment.post_id = post_id
+        new_comment.user_id = request.user.id
         new_comment.save()
 
     return redirect('posts_detail', post_id=post_id)
