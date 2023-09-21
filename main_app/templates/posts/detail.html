@@ -15,15 +15,22 @@
     <h1>Comments</h1>
     <div class="card">
         <div class="card-body">
-            <form action="" method="POST">
+            <form action="{% url 'add_comment' post.id %}" method="POST">
                 {% csrf_token %}
                 {{ comment_form.as_p }}
-                <input type="submit" value="Add Comment" class="">
-
+                <input type="submit" value="Add Comment" class="btn btn-success">
             </form>
 
         </div>
     </div>
+    {% for comment in post.comment_set.all %}
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">{{comment.user}}</h3>
+            <p class="card-text">{{comment.body}}</p>
+        </div>
+    </div>
+    {% endfor %}
 
 
 {% endblock %}
