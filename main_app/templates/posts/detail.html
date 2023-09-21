@@ -1,24 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
+        <!-- Post Details -->
     <h1>Posts Details</h1>
-
     <div class="card">
         <div class="card-body">
-            <span class="card-title">
-                <span></span> {{post.title}}
-            </span>
+            <span class="card-text">{{post.user}}</span>
             <br>
-            <span class="card-text">
-               <span></span> {{post.body}}
-          </span>
-          <br>
-          <span class="card-text">
-            <span></span> {{post.user}}
-        </span>
-        </div>
-        <div class="">
-            <a class="btn btn-success" href="{% url 'posts_update' post.id %}">Edit</a>
-            <a class="btn btn-danger" href="{% url 'posts_delete' post.id %}">Delete</a>
+            <span class="card-title">{{post.title}}</span>
+            <br>
+            <span class="card-text">{{post.body}}</span>
         </div>
     </div>
+                <!-- Comments -->
+    <h1>Comments</h1>
+    <div class="card">
+        <div class="card-body">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <input type="submit" value="Add Comment" class="">
+
+            </form>
+
+        </div>
+    </div>
+
+
 {% endblock %}
