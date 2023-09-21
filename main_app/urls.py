@@ -25,7 +25,7 @@ urlpatterns = [
     path('posts/<int:post_id>/comments/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'),
     # Assignment Views
     path('assignments/', views.AssignmentList.as_view(), name='assignments_index'),
-    path('assignments/<int:assignment_id>/', views.AssignmentDetail.as_view(), name='assignments_detail'),
+    path('assignments/<int:pk>/', views.AssignmentDetail.as_view(), name='assignments_detail'),
     path('assignments/create/', views.AssignmentCreate.as_view(), name='assignments_create'),
     path('assignments/<int:pk>/update/', views.AssignmentUpdate.as_view(), name='assignments_update'),
     path('assignments/<int:pk>/delete/', views.AssignmentDelete.as_view(), name='assignments_delete'),
