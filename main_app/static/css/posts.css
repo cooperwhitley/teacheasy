@@ -1,0 +1,53 @@
+.post-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    align-self: center;
+    margin: 1.25vmin;
+    background-color: rgb(247, 247, 247);
+}
+
+.card-body {
+    display: grid;
+    grid-template-columns: repeat(8, 10vmin);
+    grid-template-rows: repeat(2, 5vmin) repeat(2, auto) 5vmin;
+}
+
+.poster-name {
+    grid-area: 1 / 1 / 3 / 3;
+    align-self: flex-start;
+    justify-self: flex-start;
+    padding-left: 1vmin;
+    color: black;
+}
+
+.post-body {
+    grid-area: 2 / 1 / 6 / 9;
+    padding-top: 1vmin;
+    padding-left: .5vmin;
+    padding-right: .5vmin;
+}
+
+.post-title {
+    grid-area: 1 / 2 / 3 / 9;
+    align-self: flex-start;
+    justify-self: flex-end;
+    margin: 0;
+    margin-left: 1vmin;
+    padding: 0;
+}
+
+.comment-body {
+    grid-area: 1 / 1 / 5 / 9;
+    margin-bottom: .5vmin;
+}
+
+.add-comment-btn {
+    grid-area: 5 / 7 / 6 / 9;
+}
+
+.flex-head {
+    align-self: center;
+}
