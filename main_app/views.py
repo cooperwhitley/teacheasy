@@ -81,6 +81,12 @@ def join_course(request, course_id):
 
     return redirect('courses_detail', course_id=course_id)
 
+@login_required
+def leave_course(request, course_id):
+    Course.objects.get(id=course_id).students.remove(request.user)
+
+    return redirect('courses_detail', course_id=course_id)
+
 # Post Views
 class PostList(LoginRequiredMixin, ListView):
     model = Post

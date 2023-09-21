@@ -22,7 +22,13 @@
                 {% csrf_token %}
                 <button type="submit">Join Course</button>
             </form>
+            {% else %}
+            <form method="post" action="{% url 'leave_course' course.id %}">
+                {% csrf_token %}
+                <button type="submit">Leave Course</button>
+            </form>
             {% endif %}
+
         </div>
     </div>
 
