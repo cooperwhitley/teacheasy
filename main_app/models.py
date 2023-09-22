@@ -29,14 +29,11 @@ class DaysOfTheWeek(models.Model):
 
 class Course(models.Model):
     name = models.CharField(max_length=50)
-    enrollment_cap = models.IntegerField()
     start_date = models.DateField()
     end_date = models.DateField()
     # to facilitate schedules being multiple days of the week we utilized a separate object to store dates with a many to many relationship between classes and days
     days = models.ManyToManyField(DaysOfTheWeek)
     subject = models.CharField(max_length=4, choices=SUBJECTS, default=SUBJECTS[0][0])
-    require_password = models.BooleanField()
-    password = models.CharField(max_length=20)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     students = models.ManyToManyField(User, related_name='courses_enrolled', blank=True)
 
