@@ -40,6 +40,9 @@ class Course(models.Model):
 
     def __str__(self):
         return f'Course {self.name}, {self.start_date}-{self.end_date}'
+    
+    def get_absolute_url(self):
+        return reverse('courses_detail', kwargs={'course_id': self.id})
 
 
 class Post(models.Model):

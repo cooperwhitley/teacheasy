@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row content">
+          <div class="post-list">
+              <br>
+              <h2 class="flex-head">Create a Course</h2>
+              <br>
+              <div  class="create-course">
+                  <form action="" method="POST">
+                      {% csrf_token %}
+                      <table>
+                        {{ form.as_table }}
+                      </table>
+                      <input type="submit" value="Add Course" class="btn btn-success add-course-btn">
+                  </form>
+              </div> 
+          </div>
+    </div>
+</div>
+
+{% endblock %}

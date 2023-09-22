@@ -12,14 +12,13 @@ urlpatterns = [
     # Course urls
     path('courses/', views.CourseList.as_view(), name='courses_index'),
     path('courses/<int:course_id>/', views.CourseDetail.as_view(), name='courses_detail'),
-    path('courses/create/', views.CourseCreate.as_view(), name='courses_create'),
+    path('courses/add_course/', views.CourseCreate.as_view(), name='courses_create'),
     path('courses/<int:pk>/update', views.CourseUpdate.as_view(), name='courses_update'),
     path('courses/<int:pk>/delete', views.CourseDelete.as_view(), name='courses_delete'),
     path('courses/<int:course_id>/join/', views.join_course, name='join_course'),
     path('courses/<int:course_id>/leave/', views.leave_course, name='leave_course'),
     path('courses/owned/', views.owned_courses, name='owned_courses'),
     path('courses/enrolled/', views.enrolled_courses, name='enrolled_courses'),
-    path('courses/<int:course_id>/add_course/', views.add_course, name='add_course'),
 
     # Post Views
     path('posts/', views.PostList.as_view(), name='posts_index'),

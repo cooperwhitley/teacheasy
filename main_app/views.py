@@ -8,7 +8,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import CommentForm
+from .forms import CommentForm, CourseForm, PostForm, AssignmentForm
 import uuid, boto3, os
 
 # Create your views here.
@@ -57,14 +57,6 @@ class CourseDetail(DetailView):
         context['user_in_course'] = self.object.students.filter(id=self.request.user.id).exists()
         return context
 
-class CourseCreate(LoginRequiredMixin, CreateView):
-    model = Course
-    template_name = 'courses/create.html'    
-    fields = '_all_'
-
-    def form_valid(self, form):
-        return super().form_valid(form)
-
 class CourseUpdate(LoginRequiredMixin, UpdateView):
     model = Course
     template_name = 'courses/update.html'     
@@ -75,15 +67,13 @@ class CourseDelete(LoginRequiredMixin, DeleteView):
     template_name = 'courses/delete.html'
     success_url = '/courses'
 
-@login_required
-def add_course(request, user_id):
-    form = CreateCourseForm(request.POST)
+class CourseCreate(LoginRequiredMixin, CreateView):
+    model = Course
+    fields = ['name', 'start_date', 'end_date', 'days', 'subject']
 
-    if form.is_valid():
-        new_course = form.save(commit=False)
-        new_course.user_id = user_id
-        new_course.user_id = request.user.id
-        new_course.save()    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 @login_required
 def owned_courses(request):

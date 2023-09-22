@@ -17,7 +17,7 @@ class AssignmentForm(ModelForm):
         fields = ('title', 'body', 'due_date',)
 
 
-class CourseCreateForm(ModelForm):
+class CourseForm(ModelForm):
     class Meta:
         model = Course
-        fields = ['name', 'start_date', 'end_date', 'days', 'subject']        
+        fields = ('name', 'start_date', 'end_date', 'days', 'subject',)       
