@@ -15,8 +15,10 @@
                 {% endif %}
         </div>
         <div class="card-action">
-            <a href="{% url 'courses_update' course.id %}">Edit</a>
-            <a href="{% url 'courses_delete' course.id %}">Delete</a>
+            {% if request.user == course.user %} {# Check if the current user is the owner #}
+                <a href="{% url 'courses_update' course.id %}">Edit</a>
+                <a href="{% url 'courses_delete' course.id %}">Delete</a>
+            {% endif %}
             {% if not user_in_course %}
             <form method="post" action="{% url 'join_course' course.id %}">
                 {% csrf_token %}
