@@ -176,8 +176,9 @@ def upload_submission(request, assignment_id):
             bucket = os.environ['S3_BUCKET']
             s3.upload_fileobj(submission_file, bucket, key)
             url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
-            Submission.objects.create(url=url, assignment_id=assignment_id)
+            Submission.objects.create(url=url, assignment_id=assignment_id, user=request.user, comment=request.POST.get('comment', ' '))
         except Exception as e:
             print('An error occurred uploading file to S3')
             print(e)
+            print(os.environ['S3_BUCKET'])
     return redirect('assignments_detail', pk=assignment_id)
