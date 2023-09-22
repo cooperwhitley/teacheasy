@@ -31,6 +31,8 @@
   background-color: #2f1b25c4;
   padding: 3vmin;
   position: fixed;
+  display: flex;
+  align-items: center;
   top: 0;
   width: 100vw;
   z-index: 5000;
@@ -41,6 +43,7 @@
   padding-left: 4vmin;
   padding-right: 4vmin;
   font-size: 2vmin;
+  text-decoration: none;
   transition: color 500ms ease;
 }
 
@@ -68,6 +71,7 @@
 .signup-a {
   align-self: center;
 }
+
 
 .form-container {
   display: flex;

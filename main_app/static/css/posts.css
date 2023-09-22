@@ -55,3 +55,11 @@
 .file-field {
     grid-area: 5 / 1 / 6 / 7;
 }
+
+.submission-comm {
+    grid-area: 2 / 1 / 4 / 9;
+}
+
+.submission-link {
+    grid-area: 4 / 1 / 7 / 9;
+}

@@ -157,9 +157,6 @@ def delete_comment(request, post_id, comment_id):
 
 
 # Assignment Views
-class AssignmentList(LoginRequiredMixin, ListView):
-    model = Assignment
-    template_name = 'assignments/index.html'
 
 class AssignmentDetail(LoginRequiredMixin, DetailView):
     model = Assignment
