@@ -137,6 +137,18 @@ class PostDelete(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = '/posts'
 
+@login_required
+def add_post(request, course_id):
+    form = PostForm(request.POST)
+
+    if form.is_valid():
+        new_post = form.save(commit=False)
+        new_post.course_id = course_id
+        new_post.user_id = request.user.id
+        new_post.save()
+
+    return redirect('course_detail', course_id=course_id)
+
 # Comment Views
 
 @login_required
@@ -176,6 +188,18 @@ class AssignmentUpdate(LoginRequiredMixin, UpdateView):
 class AssignmentDelete(LoginRequiredMixin, DeleteView):
     model = Assignment
     success_url = '/assignments'
+
+@login_required
+def add_assignment(request, course_id):
+    form = AssignmentForm(request.POST)
+
+    if form.is_valid():
+        new_assignment = form.save(commit=False)
+        new_assignment.course_id = course_id
+        new_assignment.user_id = request.user.id
+        new_assignment.save()
+
+    return redirect('course_detail', course_id=course_id)    
 
 # Submission Views
 

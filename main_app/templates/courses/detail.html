@@ -13,8 +13,10 @@
         </div>
         <div class="card-action">
             {% if request.user == course.user %} {# Check if the current user is the owner #}
+            <div class="teacher-buttons">  
                 <a href="{% url 'courses_update' course.id %}">Edit</a>
                 <a href="{% url 'courses_delete' course.id %}">Delete</a>
+            </div>      
             {% endif %}
             {% if not user_in_course %}
             <form class="button" method="post" action="{% url 'join_course' course.id %}">
@@ -31,10 +33,24 @@
     </div>
     <div class="course-content">
         <div class="assignment-list">
-            <h1>Current Assignments</h1>    
+            <h2>Current Assignments</h2>
+            {% if request.user == course.user %} {# Check if the current user is the owner #}
+            <div class="card">
+                <form action="{% url 'add_assignment' course.id %}" method="POST" class="card-body">
+                    {% csrf_token %}
+                    <input type="text" name="title" class="form-control assignemnt-title" placeholder="Title here">
+                    <br>
+                    <textarea name="body" class="form-control assignment" placeholder="showcase your writing skills here" rows="5" maxlength="500"></textarea>
+                    <br>
+                    <input type="date" name="due_date" class="form-control assignment">
+                    <br>
+                    <input type="submit" value="Add Assignment" class="btn btn-success add-assignment-btn">
+                </form>
+            </div> 
+            {% endif %}   
             {% for assignment in course.assignment_set.all %}
-            <div class="card"  style="width: 18rem;">
-                <a href="{% url 'assignments_detail' assignment.id %}">
+            <div class="card post"  style="width: 18rem;">
+                <a href="{% url 'assignments_detail' assignment.id %}" class="navlinks">
                     <div class="card-body">
                         <h3 class="card-text poster-name"><small>{{assignment.title}}</small></h3>
                     </div>
@@ -43,10 +59,22 @@
             {% endfor %} 
         </div>
         <div class="post-list">
-            <h1>Posts</h1>
+            <h2>Posts</h2>
+            {% if user_in_course %}
+            <div class="card">
+                <form action="{% url 'add_post' course.id %}" method="POST" class="card-body">
+                    {% csrf_token %}
+                    <input type="text" name="title" class="form-control post" placeholder="Title here">
+                    <br>
+                    <textarea name="body" class="form-control post" placeholder="showcase your writing skills here" rows="5" maxlength="500"></textarea>
+                    <br>
+                    <input type="submit" value="Add Post" class="btn btn-success add-post-btn">
+                </form>
+            </div> 
+            {% endif %}
             {% for post in course.post_set.all %}
-                <div class="card" style="width: 18rem;">
-                    <a href="{% url 'posts_detail' post.id %}">
+                <div class="card post" style="width: 18rem;">
+                    <a href="{% url 'posts_detail' post.id %}" class="navlinks">
                         <div class="card-body">
                             <h5 class="card-title">{{post.title}}</h5>
                         </div>
