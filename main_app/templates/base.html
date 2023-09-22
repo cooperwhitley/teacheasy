@@ -18,11 +18,15 @@
         <nav id="header-nav">
             <a href="{% url 'home' %}" class="anim-text">TeachEasy</a>
             <a href="{% url 'courses_index' %}" class="non-logo-links">Courses</a>
-            <a href="{% url 'assignments_index' %}" class="non-logo-links">Assignments</a>
-            <a href="{% url 'posts_index' %}" class="non-logo-links">Posts</a>
-            <a href="{% url 'login' %}" class="signin-nav">
-                <button type="button" class="btn btn-secondary">Sign In</button>
-            </a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="signin-nav">
+                    <button type="button" class="btn btn-secondary">Log Out</button>
+                </a>
+            {% else %}
+                <a href="{% url 'login' %}" class="signin-nav">
+                    <button type="button" class="btn btn-secondary">Log In</button>
+                </a>
+            {% endif %}
         </nav>
     </div>
     <div class="bumper">&nbsp;</div>
