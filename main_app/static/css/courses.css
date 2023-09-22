@@ -24,11 +24,16 @@
   .row.content {height: auto;} 
 }
 
+.header {
+  text-align: center;
+}
+
 .course-content {
   display: inline-grid;
   grid-template-columns: 1fr 1fr;
   width: 90%;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .assignment-list {
@@ -38,6 +43,7 @@
   overflow-y: auto;
   float: left; 
   margin-left: 15%;
+  text-align: center;
 }
 
 .post-list {
@@ -46,5 +52,20 @@
   height: 100%;
   overflow-y: auto;
   margin-left: 40%;
+  text-align: center;
 }
 
+.card-title {
+  text-align: center;
+  margin: 1%;
+}
+
+.button {
+  text-align: center;
+  margin: 1%;
+}
+
+.card {
+  width: 90%;
+  margin: 0 auto;
+}
