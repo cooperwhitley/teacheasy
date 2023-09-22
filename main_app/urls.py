@@ -8,6 +8,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     # auth urls
     path('accounts/signup/', views.signup, name='signup'),
+    
     # Course urls
     path('courses/', views.CourseList.as_view(), name='courses_index'),
     path('courses/<int:course_id>/', views.CourseDetail.as_view(), name='courses_detail'),
@@ -18,6 +19,7 @@ urlpatterns = [
     path('courses/<int:course_id>/leave/', views.leave_course, name='leave_course'),
     path('courses/owned/', views.owned_courses, name='owned_courses'),
     path('courses/enrolled/', views.enrolled_courses, name='enrolled_courses'),
+    path('courses/<int:course_id>/add_course/', views.add_course, name='add_course'),
 
     # Post Views
     path('posts/', views.PostList.as_view(), name='posts_index'),

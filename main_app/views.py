@@ -60,7 +60,7 @@ class CourseDetail(DetailView):
 class CourseCreate(LoginRequiredMixin, CreateView):
     model = Course
     template_name = 'courses/create.html'    
-    fields = ['name', 'start_date', 'end_date', 'days', 'subject',]
+    fields = '_all_'
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -74,6 +74,16 @@ class CourseDelete(LoginRequiredMixin, DeleteView):
     model = Course
     template_name = 'courses/delete.html'
     success_url = '/courses'
+
+@login_required
+def add_course(request, user_id):
+    form = CreateCourseForm(request.POST)
+
+    if form.is_valid():
+        new_course = form.save(commit=False)
+        new_course.user_id = user_id
+        new_course.user_id = request.user.id
+        new_course.save()    
 
 @login_required
 def owned_courses(request):

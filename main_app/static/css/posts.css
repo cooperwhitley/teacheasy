@@ -63,3 +63,25 @@
 .submission-link {
     grid-area: 4 / 1 / 7 / 9;
 }
+
+.create-course {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.name-subject {
+    width: 50%;
+    align-self: center;
+    margin: auto;
+
+}
+
+.schedule {
+    display: inline-flex;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.add-course-btn {
+    margin: 10px;
+}
