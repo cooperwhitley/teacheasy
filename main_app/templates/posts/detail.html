@@ -7,12 +7,12 @@
 {% block content %}
         <!-- Post Details -->
     <div class="post-list">
-        <h1 class="flex-head">Posts Details</h1>
+        <h1 class="flex-head">{{ post.title }}</h1>
         <div class="card">
             <div class="card-body">
                 <h3 class="card-text poster-name">{{post.user}}</h3>
                 <br>
-                <h4 class="card-title post-title">{{post.title}}</h4>
+                <h4 class="card-title post-title">{{post.course.name}}</h4>
                 <br>
                 <p class="card-text post-body">{{post.body}}</p>
             </div>
