@@ -16,6 +16,8 @@ urlpatterns = [
     path('courses/<int:pk>/delete', views.CourseDelete.as_view(), name='courses_delete'),
     path('courses/<int:course_id>/join/', views.join_course, name='join_course'),
     path('courses/<int:course_id>/leave/', views.leave_course, name='leave_course'),
+    path('courses/owned/', views.owned_courses, name='owned_courses'),
+    path('courses/enrolled/', views.enrolled_courses, name='enrolled_courses'),
 
     # Post Views
     path('posts/', views.PostList.as_view(), name='posts_index'),

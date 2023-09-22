@@ -8,7 +8,7 @@
   <div class="row content">
         <div class="col-sm-10 dashboard">
             <br>
-            <h2>Course View</h2>
+            <h2>All Courses</h2>
             <br>
             {% for course in courses %}
                 <div class="card">
@@ -24,10 +24,9 @@
         </div>
         <div class="col-sm-2 sidenav">
             <ul class="nav nav-pills flex-column">
-                <li ><a class="navlinks" href="">Recent</a></li>
-                <li><a href="{% url 'home' %}" class="navlinks">Dashboard</a></li> 
-                <li><a href="{% url 'courses_index' %}" class="navlinks">Join Classes</a></li>
-                <li><a href="{% url 'courses_create' %}" class="navlinks">Create a Class</a></li> 
+                <li><a href="{% url 'enrolled_courses' %}" class="navlinks">Enrolled Courses</a></li>
+                <li><a href="{% url 'owned_courses' %}" class="navlinks">My Courses</a></li>
+                <li><a href="{% url 'courses_create' %}" class="navlinks">Create a Class</a></li>
             </ul><br>
         </div>
   </div>
