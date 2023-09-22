@@ -60,7 +60,7 @@
         </div>
         <div class="post-list">
             <h2>Posts</h2>
-            {% if user_in_course %}
+            {% if request.user == course.user %}
             <div class="card">
                 <form action="{% url 'add_post' course.id %}" method="POST" class="card-body">
                     {% csrf_token %}
