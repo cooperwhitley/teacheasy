@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/courses.css' %}">
+{% endblock %}
 {% block content %}
 
     <h1>Course Details</h1>
@@ -32,18 +36,31 @@
             {% endif %}
         </div>
     </div>
-<div class="post-list">
-    <h1>Current Assignments</h1>    
-        {% for assignment in course.assignment_set.all %}
-        <h1 class="flex-head"><small>{{assignment.title}}</small></h1>
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-text poster-name"><small>{{assignment.user}}</small></h3>
-                <br>
-                <p class="card-text post-body">{{assignment.body}}</p>
+    <div class="course-content">
+        <div class="assignment-list">
+            <h1>Current Assignments</h1>    
+            {% for assignment in course.assignment_set.all %}
+            <h1 class="flex-head"><small>{{assignment.title}}</small></h1>
+            <div class="card"  style="width: 18rem;">
+                <a href="{% url 'assignments_detail' assignment.id %}">
+                    <div class="card-body">
+                        <h3 class="card-text poster-name"><small>{{assignment.user}}</small></h3>
+                    </div>
+                </a>    
             </div>
+            {% endfor %} 
         </div>
-        {% endfor %} 
-</div>
-
+        <div class="post-list">
+            <h1>Posts</h1>
+            {% for post in course.post_set.all %}
+                <div class="card" style="width: 18rem;">
+                    <a href="{% url 'posts_detail' post.id %}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{post.title}}</h5>
+                        </div>
+                    </a>   
+                </div>
+            {% endfor %}
+        </div>
+    </div>    
 {% endblock %}

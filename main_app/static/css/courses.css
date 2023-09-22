@@ -24,7 +24,27 @@
   .row.content {height: auto;} 
 }
 
+.course-content {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.assignment-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  float: left; 
+  margin-left: 15%;
+}
+
 .post-list {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  margin-left: 40%;
 }
+
