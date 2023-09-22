@@ -5,18 +5,11 @@
 {% endblock %}
 {% block content %}
 
-    <h1>Course Details</h1>
+    <h1 class="header">Course Details</h1>
 
     <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ course.name }}</span>
-            <p>Color: {{ course.color }}</p>
-            <p>Size: {{ course.size }}</p>
-            {% if course.habitat %}
-                <p>Habitat: {{ course.habitat }}</p>
-                {% else %}
-                    <p>Habitat: N/A</p>
-                {% endif %}
+            <h3 class="card-title">{{ course.name }}</h3>
         </div>
         <div class="card-action">
             {% if request.user == course.user %} {# Check if the current user is the owner #}
@@ -24,12 +17,12 @@
                 <a href="{% url 'courses_delete' course.id %}">Delete</a>
             {% endif %}
             {% if not user_in_course %}
-            <form method="post" action="{% url 'join_course' course.id %}">
+            <form class="button" method="post" action="{% url 'join_course' course.id %}">
                 {% csrf_token %}
                 <button type="submit">Join Course</button>
             </form>
             {% else %}
-            <form method="post" action="{% url 'leave_course' course.id %}">
+            <form class="button" method="post" action="{% url 'leave_course' course.id %}">
                 {% csrf_token %}
                 <button type="submit">Leave Course</button>
             </form>
@@ -40,11 +33,10 @@
         <div class="assignment-list">
             <h1>Current Assignments</h1>    
             {% for assignment in course.assignment_set.all %}
-            <h1 class="flex-head"><small>{{assignment.title}}</small></h1>
             <div class="card"  style="width: 18rem;">
                 <a href="{% url 'assignments_detail' assignment.id %}">
                     <div class="card-body">
-                        <h3 class="card-text poster-name"><small>{{assignment.user}}</small></h3>
+                        <h3 class="card-text poster-name"><small>{{assignment.title}}</small></h3>
                     </div>
                 </a>    
             </div>
