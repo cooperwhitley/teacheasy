@@ -15,6 +15,17 @@
                 <p class="card-text post-body">{{assignment.body}}</p>
             </div>
         </div>
+        {% for submission in assignment.submission_set.all %}
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-text poster-name">{{ submission.user }}</h3>
+                    <p class="card-text submission-comm">{{ submission.comment }}</p>
+                    <p class="card-text submission-link">This is where this submission would be embedded, if I could get it to work. Pretend it worked anyways and <a href="{{ submission.url }}">download it</a> if you really wanna see it that bad</p>
+                </div>
+            </div>
+    
+    
+        {% endfor %}
         <div class="card">
             <form action="{% url 'upload_submission' assignment.id %}" method="POST" class="card-body" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -24,7 +35,7 @@
                 <br>
                 <button type="submit" class="btn btn-success add-comment-btn">Upload Submission</button>
             </form>
-        </div>
+            
     </div>
 
 
