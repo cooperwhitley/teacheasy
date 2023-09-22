@@ -23,3 +23,8 @@
   }
   .row.content {height: auto;} 
 }
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+}
