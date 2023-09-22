@@ -51,3 +51,7 @@
 .flex-head {
     align-self: center;
 }
+
+.file-field {
+    grid-area: 5 / 1 / 6 / 7;
+}
