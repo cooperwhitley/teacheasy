@@ -32,8 +32,8 @@
             {% endif %}
         </div>
     </div>
-<div class="post-list">
-    <h1>Current Assignments</h1>    
+    <div class="post-list">
+        <h1>Current Assignments</h1>    
         {% for assignment in course.assignment_set.all %}
         <h1 class="flex-head"><small>{{assignment.title}}</small></h1>
         <div class="card">
@@ -44,6 +44,21 @@
             </div>
         </div>
         {% endfor %} 
-</div>
-
+    </div>
+    <div class="post-list">
+        <h1>Posts</h1>
+        {% for post in course.post_set.all %}
+            <div class="card" style="width: 18rem;">
+                <a href="{% url 'posts_detail' post.id %}">
+                    <div class="card-body">
+                        <p class="card-text">{{ post.user }}</p>
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                            <p class="card-text">{{ post.body }}</p>
+                    
+                    </div>
+                </a>   
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
