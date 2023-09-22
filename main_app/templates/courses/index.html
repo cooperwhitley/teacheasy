@@ -6,22 +6,21 @@
 {% block content %}
 <div class="container-fluid">
   <div class="row content">
-        <div class="post-list">
-        
-            <a href="{% url 'courses_create' %}">Create a Course</a>
-            <br>
-            <h2 class="flex-head">All Courses</h2>
-            <br>  
-            {% for course in courses %}
-                <div class="card">
-                    <a href="{% url 'courses_detail' course.id %}">
-                        <div class="card-body">
-                            <h3 class="card-title poster-name">{{ course.name }}</h3>
-                            <h3 class="post-title">{{ course.user }}</h3>
-                        </div>
-                    </a>
-                </div>
+      <div class="post-list">
+          <br>
+          <h2 class="flex-head">All Courses</h2>
+          <br>  
+          {% for course in courses %}
+          <div class="card">
+              <a href="{% url 'courses_detail' course.id %}">
+                  <div class="card-body">
+                      <h3 class="card-title poster-name">{{ course.name }}</h3>
+                      <h3 class="post-title">{{ course.user }}</h3>
+                    </div>
+                </a>
+            </div>
             {% endfor %}
+            <a href="{% url 'courses_create' %}" class="flex-head">Create a Course</a>
         </div>
   </div>
 </div>
