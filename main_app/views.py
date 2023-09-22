@@ -147,7 +147,7 @@ def add_post(request, course_id):
         new_post.user_id = request.user.id
         new_post.save()
 
-    return redirect('course_detail', course_id=course_id)
+    return redirect('courses_detail', course_id=course_id)
 
 # Comment Views
 
@@ -199,7 +199,7 @@ def add_assignment(request, course_id):
         new_assignment.user_id = request.user.id
         new_assignment.save()
 
-    return redirect('course_detail', course_id=course_id)    
+    return redirect('courses_detail', course_id=course_id)    
 
 # Submission Views
 
