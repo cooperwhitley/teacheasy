@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Your Owned Courses</h1>
+    <ul>
+        {% for course in owned_courses %}
+            <li><a href="{% url 'courses_detail' course.id %}">{{ course.name }}</a></li>
+        {% empty %}
+            <li>You don't own any courses yet.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Back to Dashboard</a>
+{% endblock %}

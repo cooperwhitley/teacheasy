@@ -76,6 +76,29 @@ class CourseDelete(LoginRequiredMixin, DeleteView):
     success_url = '/courses'
 
 @login_required
+def owned_courses(request):
+    user = request.user
+    owned_courses = Course.objects.filter(user=user)
+
+    context = {
+        'owned_courses': owned_courses,
+    }
+
+    return render(request, 'courses/owned_courses.html', context)
+    
+
+@login_required
+def enrolled_courses(request):
+    user = request.user
+    enrolled_courses = user.course_set.all() 
+
+    context = {
+        'enrolled_courses': enrolled_courses,
+    }
+
+    return render(request, 'courses/enrolled_courses.html', context)
+
+@login_required
 def join_course(request, course_id):
     Course.objects.get(id=course_id).students.add(request.user)
 
