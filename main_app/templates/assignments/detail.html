@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock %}
+
+{% block content %}
+        <!-- Post Details -->
+    <div class="post-list">
+        <h1 class="flex-head">{{assignment.title}}</h1>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-text poster-name">{{assignment.user}}</h3>
+                <br>
+                <p class="card-text post-body">{{assignment.body}}</p>
+            </div>
+        </div>
+        <div class="card">
+            <form action="{% url 'upload_submission' assignment.id %}" method="POST" class="card-body" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="submission-file" class="">
+                <br>
+                <textarea name="comment" class="form-control comment-body" placeholder="write your submission here" rows="5" maxlength="1000"></textarea>
+                <br>
+                <button type="submit" class="btn btn-success add-comment-btn">Upload Submission</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
