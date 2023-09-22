@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Comment, Post, Assignment
+from .models import Comment, Post, Assignment, Course
 
 class CommentForm(ModelForm):
     class Meta:
@@ -15,3 +15,9 @@ class AssignmentForm(ModelForm):
     class Meta:
         model = Assignment
         fields = ('title', 'body', 'due_date',)
+
+
+class CourseCreateForm(ModelForm):
+    class Meta:
+        model = Course
+        fields = ['name', 'start_date', 'end_date', 'days', 'subject']        

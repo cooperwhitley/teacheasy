@@ -8,8 +8,34 @@
   <div class="row content">
         <div class="post-list">
             <br>
-            <h2 class="flex-head">All Courses</h2>
+            <h2 class="flex-head">Create a Course</h2>
             <br>
+            {% if user %}
+            <div  class="create-course">
+                <form action="{% url 'add_course' user.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="name-subject">
+                    <input type="text" name="Name" class="form-control course-title" placeholder="Name here">
+                    <br>
+                    <input type="subject" name="subject" class="form-control course">
+                    </div>
+                    <br>
+                    <div class="schedule">
+                        <input type="date" name="start_date" class="form-control course">
+                        <br>
+                        <input type="date" name="end_date" class="form-control course">
+                        <br>
+                        <input type="days" name="days" class="form-control course">
+                        <br>
+                    </div>
+                    <br>
+                    <input type="submit" value="Add Course" class="btn btn-success add-course-btn">
+                </form>
+            </div> 
+            {% endif %}
+            <br>
+            <h2 class="flex-head">All Courses</h2>
+            <br>  
             {% for course in courses %}
                 <div class="card">
                     <a href="{% url 'courses_detail' course.id %}">
