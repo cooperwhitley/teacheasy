@@ -60,7 +60,7 @@ class CourseDetail(DetailView):
 class CourseCreate(LoginRequiredMixin, CreateView):
     model = Course
     template_name = 'courses/create.html'    
-    fields = '__all__'
+    fields = ['name', 'start_date', 'end_date', 'days', 'subject',]
 
     def form_valid(self, form):
         return super().form_valid(form)
