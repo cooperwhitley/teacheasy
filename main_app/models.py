@@ -64,7 +64,7 @@ class Comment(models.Model):
 class Assignment(models.Model):
     title = models.CharField(max_length=50)
     body = models.CharField(max_length=500)
-    due_date = models.DateField()
+    due_date = models.DateTimeField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
